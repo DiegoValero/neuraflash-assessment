@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+allure-report/
+allure-results/
+reports/html/
+reports/json/
+reports/screenshots/
+test-results/
+playwright-report/
+playwright/.auth/*.json
+playwright/.auth/*.json.bak
+*.log
+.DS_Store
+reports/.run-store/
+reports/screenshots/

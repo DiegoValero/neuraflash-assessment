@@ -1,0 +1,34 @@
+{
+  "name": "neuraflash-assessment",
+  "version": "1.0.0",
+  "description": "Salesforce QA Automation Framework with OpenAI — NeuraFlash Assessment - Diego Valero",
+  "scripts": {
+    "auth:sf": "ts-node src/auth/authCLI.ts sf",
+    "auth:agent": "ts-node src/auth/authCLI.ts agent",
+    "auth:all": "ts-node src/auth/authCLI.ts all",
+    "test:task1": "playwright test tests/task1 --reporter=list,allure-playwright",
+    "test:task2": "playwright test tests/task2 --reporter=list,allure-playwright",
+    "test:all": "playwright test --reporter=list,allure-playwright",
+    "test:task1:full": "rm -rf allure-results allure-report && playwright test tests/task1 --reporter=list,allure-playwright && npx allure-commandline generate allure-results --clean -o allure-report && npx allure-commandline open allure-report",
+    "test:task2:full": "rm -rf allure-results allure-report && playwright test tests/task2 --reporter=list,allure-playwright && npx allure-commandline generate allure-results --clean -o allure-report && npx allure-commandline open allure-report",
+    "test:all:full": "rm -rf allure-results allure-report && playwright test --reporter=list,allure-playwright && npx allure-commandline generate allure-results --clean -o allure-report && npx allure-commandline open allure-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests --ext .ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.52.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "@types/node": "^20.14.0",
+    "allure-commandline": "^2.38.0",
+    "allure-js-commons": "^3.0.0",
+    "allure-playwright": "^3.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}
